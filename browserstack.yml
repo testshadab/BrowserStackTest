@@ -1,0 +1,36 @@
+userName: testshadab1
+accessKey: ZjtZgz1nMtfT97zooE2y
+
+
+projectName: BrowserStack Samples
+# Set `buildName` as the name of the job / testsuite being run
+buildName: browserstack build
+buildIdentifier: '#${BUILD_NUMBER}'
+framework: testng
+
+platforms:
+  - os: OS X
+    osVersion: Big Sur
+    browserName: Chrome
+    browserVersion: latest
+  - os: Windows
+    osVersion: 10
+    browserName: Edge
+    browserVersion: latest
+  - deviceName: Samsung Galaxy S22 Ultra
+    browserName: chrome
+    osVersion: 12.0
+
+
+parallelsPerPlatform: 1
+
+source: testng:sample-master:v1.1
+
+browserstackLocal: true # <boolean> (Default false)
+
+
+# ===================
+debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
+networkLogs: false # <boolean> Set to true to enable HAR logs capturing
+consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+testObservability: true
