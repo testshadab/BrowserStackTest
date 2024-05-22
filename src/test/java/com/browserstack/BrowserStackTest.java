@@ -32,6 +32,7 @@ public class BrowserStackTest {
 
     WebDriver driver1 = new RemoteWebDriver(new URL(browserStackUrl), caps1);
     driver1.get("https://www.bstackdemo.com/");
+    driver1.manage().window().maximize();
     System.out.println(driver1.getTitle());
     driver1.quit();
 
@@ -45,6 +46,7 @@ public class BrowserStackTest {
 
     WebDriver driver2 = new RemoteWebDriver(new URL(browserStackUrl), caps2);
     driver2.get("https://www.bstackdemo.com/");
+    driver1.manage().window().maximize();
     System.out.println(driver2.getTitle());
     driver2.quit();
 
@@ -57,7 +59,9 @@ public class BrowserStackTest {
 
     WebDriver driver3 = new RemoteWebDriver(new URL(browserStackUrl), caps3);
     driver3.get("https://www.bstackdemo.com/");
+    driver1.manage().window().maximize();
     System.out.println(driver3.getTitle());
+
     driver3.quit();
   }
 }
