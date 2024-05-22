@@ -1,6 +1,8 @@
 package com.browserstack;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
@@ -34,6 +36,10 @@ public class BrowserStackTest {
     driver1.get("https://www.bstackdemo.com/");
     driver1.manage().window().maximize();
     System.out.println(driver1.getTitle());
+    Thread.sleep(2000);
+    WebElement addcard = driver1.findElement(By.xpath("(//div[@class='shelf-item__buy-btn'])[1]"));
+    addcard.click();
+    Thread.sleep(2000);
     driver1.quit();
 
     // Windows 10 with Edge
@@ -43,10 +49,13 @@ public class BrowserStackTest {
     caps2.setCapability("browserName", "Edge");
     caps2.setCapability("browserVersion", "latest");
     caps2.setCapability("name", "Windows 10 - Edge Test");
-
     WebDriver driver2 = new RemoteWebDriver(new URL(browserStackUrl), caps2);
     driver2.get("https://www.bstackdemo.com/");
-    driver1.manage().window().maximize();
+    driver2.manage().window().maximize();
+    Thread.sleep(2000);
+    WebElement addcard1 = driver2.findElement(By.xpath("(//div[@class='shelf-item__buy-btn'])[1]"));
+    addcard1.click();
+    Thread.sleep(2000);
     System.out.println(driver2.getTitle());
     driver2.quit();
 
@@ -56,12 +65,15 @@ public class BrowserStackTest {
     caps3.setCapability("os_version", "12.0");
     caps3.setCapability("browserName", "chrome");
     caps3.setCapability("name", "Samsung Galaxy S22 Ultra - Chrome Test");
-
     WebDriver driver3 = new RemoteWebDriver(new URL(browserStackUrl), caps3);
     driver3.get("https://www.bstackdemo.com/");
-    driver1.manage().window().maximize();
+    driver3.manage().window().maximize();
+    Thread.sleep(2000);
+    WebElement addcard2 = driver3.findElement(By.xpath("(//div[@class='shelf-item__buy-btn'])[1]"));
+    addcard2.click();
+    Thread.sleep(2000);
     System.out.println(driver3.getTitle());
-
+    Thread.sleep(2000);
     driver3.quit();
   }
 }
